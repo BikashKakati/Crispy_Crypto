@@ -1,4 +1,5 @@
 import Navbar from './components/Navbar'
+import Home from './pages/Home'
 
 import './App.css'
 import { ThemeProvider, createTheme } from '@mui/material'
@@ -14,6 +15,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
     <>
     <Navbar/>
+    <Home/>
     </>
     </ThemeProvider>
   )
