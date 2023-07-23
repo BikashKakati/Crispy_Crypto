@@ -8,5 +8,7 @@
 }
 
 body{
-    background: #000;
+    min-height: 100vh;
+    background: linear-gradient(180deg,#313131 5%,#000 65%);
+    color: #fff;
 }
