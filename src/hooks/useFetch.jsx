@@ -11,7 +11,7 @@ export const useFetch = (apiUrl, currency) => {
         fetchApiData(apiUrl, currency)
         .then(data =>{
             subscribe && setApiData(data);
-            setLoading(false);
+            setTimeout(()=>setLoading(false),3000);
         })
         .catch(err=>{
             console.log(err);
