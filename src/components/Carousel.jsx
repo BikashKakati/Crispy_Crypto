@@ -29,7 +29,7 @@ const Carousel = () => {
       display: "flex",
       flexDirection: "column",
       alignItems: "center",
-      gap: 1,
+      gap: .5,
     },
     coinImage: {
       width: { xs: 70, sm: 85 },
@@ -48,7 +48,7 @@ const Carousel = () => {
         <Box sx={stylesFor.coinBox}>
           <Box sx={stylesFor.coinImage}><img src={coin?.image} style={{ width: "100%" }} /></Box>
           <span style={stylesFor.coinName}>{coin?.name}</span>
-          <span style={{ color: priceStatus < 0 ? "#fd0202" : "#04be33", fontSize: 15, fontWeight: 800 }}>{priceStatus > 0 ? "+" + priceStatus : priceStatus}</span>
+          <span style={{ color: priceStatus < 0 ? "#fd0202" : "#04be33", fontSize: 20, fontWeight: 800 }}>{priceStatus > 0 ? "+" + priceStatus : priceStatus}</span>
         </Box>
 
     )

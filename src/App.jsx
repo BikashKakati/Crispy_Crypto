@@ -7,6 +7,9 @@ import { ThemeProvider, createTheme } from '@mui/material'
 function App() {
   const darkTheme = createTheme({
     palette:{
+      primary:{
+        main: "#fff",
+      },
       mode: "dark",
     },
   })
