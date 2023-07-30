@@ -3,7 +3,7 @@ import { AppBar, Toolbar, Typography, Select, MenuItem, Button} from '@mui/mater
 
 const stylesFor = {
   logo:{
-    color:"gold",
+    color:"var(--ori-gold)",
     fontWeight:700,
     cursor:"pointer",
     whiteSpace:"nowrap",
@@ -16,7 +16,7 @@ const stylesFor = {
 const Navbar = () => {
 
   return (
-    <AppBar sx={{background:"#111"}} position='sticky'>
+    <AppBar sx={{background:"var(--ori-black)"}} position='sticky'>
         <Toolbar>
             <Typography sx={{flex:1}}><Button sx={stylesFor.logo}>CRISPY CRYPTO</Button> </Typography>
             <Select variant='outlined' sx={{width: 100, height: 40}} defaultValue={"USD"}>

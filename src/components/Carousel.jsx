@@ -43,12 +43,12 @@ const Carousel = () => {
   }
 
   const items = coinsData?.map(coin => {
-    const priceStatus = coin?.price_change_24h.toFixed(2);
+    const priceStatus = coin?.price_change_24h > 0;
     return (
         <Box sx={stylesFor.coinBox}>
           <Box sx={stylesFor.coinImage}><img src={coin?.image} style={{ width: "100%" }} /></Box>
           <span style={stylesFor.coinName}>{coin?.name}</span>
-          <span style={{ color: priceStatus < 0 ? "#fd0202" : "#04be33", fontSize: 20, fontWeight: 800 }}>{priceStatus > 0 ? "+" + priceStatus : priceStatus}</span>
+          <span style={{ color: priceStatus ?  "var(--ori-green)": "var(--ori-red)", fontSize: 18, fontWeight: 800 }}>{priceStatus && "+"}{coin?.price_change_24h.toFixed(2)}%</span>
         </Box>
 
     )

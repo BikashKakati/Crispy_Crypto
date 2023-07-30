@@ -15,7 +15,7 @@ const Loader = () => {
             height:60,
             borderRadius:"50%",
             border:"6px solid #fff",
-            borderTop:"6px solid gold",
+            borderTop:"6px solid var(--ori-gold)",
             animation:"1s spinner linear infinite",
         }
     }

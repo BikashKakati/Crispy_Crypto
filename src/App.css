@@ -6,11 +6,23 @@
     box-sizing: border-box;
     font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+:root{
+    --bg-color:#222;
+    --ori-black:#111;
+    --ori-white:#fff;
+    --ori-grey:#c4bfbf;
+    --ori-green:#04be33;
+    --ori-red:#fd0202;
+    --ori-gold:#fcce00;
+}
+html{
+    scroll-behavior: smooth;
+}
 
 body{
     min-height: 100vh;
-    background: linear-gradient(180deg,#313131 30%,#000 60%);
-    color: #fff;
+    background:var(--bg-color); 
+    color: var(--ori-white);
 }
 @keyframes spinner{
     0%{
