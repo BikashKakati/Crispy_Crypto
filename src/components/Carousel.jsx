@@ -4,43 +4,46 @@ import { useFetch } from '../hooks/useFetch';
 import { Box, Container, Typography } from '@mui/material';
 import AliceCarousel from 'react-alice-carousel';
 import Loader from './Loader';
+import { ContextCryptoState } from '../context/CryptoContext';
+
+const stylesFor = {
+  containerBox: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    color: "#fff",
+    marginTop: 10,
+    gap: { xs: 5, md: 6 },
+  },
+  headline: {
+    fontSize: { xs: 28, sm: 50, md: 90 },
+    fontWeight: 500,
+    whiteSpace: "nowrap",
+    textTransform: "capitalize",
+    textAlign: "center",
+    lineHeight: 1.2,
+  },
+  coinBox: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: .5,
+  },
+  coinImage: {
+    width: { xs: 70, sm: 85 },
+  },
+  coinName: {
+    color: "#fff",
+    textAlign: "center",
+    fontWeight: 600,
+    fontSize: 17,
+  },
+}
 
 const Carousel = () => {
-  const { apiData: coinsData, loading } = useFetch("markets", "INR");
+  const {currency} = ContextCryptoState();
+  const { apiData: coinsData, loading } = useFetch("markets", currency);
   
-  const stylesFor = {
-    containerBox: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      color: "#fff",
-      marginTop: 10,
-      gap: { xs: 5, md: 6 },
-    },
-    headline: {
-      fontSize: { xs: 28, sm: 50, md: 90 },
-      fontWeight: 500,
-      whiteSpace: "nowrap",
-      textTransform: "capitalize",
-      textAlign: "center",
-      lineHeight: 1.2,
-    },
-    coinBox: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      gap: .5,
-    },
-    coinImage: {
-      width: { xs: 70, sm: 85 },
-    },
-    coinName: {
-      color: "#fff",
-      textAlign: "center",
-      fontWeight: 600,
-      fontSize: 17,
-    },
-  }
 
   const items = coinsData?.map(coin => {
     const priceStatus = coin?.price_change_24h > 0;
