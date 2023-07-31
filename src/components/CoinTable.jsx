@@ -1,25 +1,29 @@
 import { Box, Container, LinearProgress, Pagination, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
 import { useFetch } from '../hooks/useFetch'
+import { ContextCryptoState } from '../context/CryptoContext';
+
+const stylesFor = {
+  coinTableContainer: {
+    textAlign: "center",
+    marginTop: 10,
+  },
+  headLine: {
+    fontSize: 35,
+    fontWeight: 700,
+  },
+  searchBar: {
+    width: "100%",
+    marginTop: 3,
+    marginBottom: 3,
+  }
+}
 
 const CoinTable = () => {
-  const { apiData: coinData, loading } = useFetch("markets", "INR", 100);
+  const {currency,symbol} = ContextCryptoState();
+  const { apiData: coinData, loading } = useFetch("markets", currency, 100);
   const [page, setPage] = useState(1);
-  const stylesFor = {
-    coinTableContainer: {
-      textAlign: "center",
-      marginTop: 10,
-    },
-    headLine: {
-      fontSize: 35,
-      fontWeight: 700,
-    },
-    searchBar: {
-      width: "100%",
-      marginTop: 3,
-      marginBottom: 3,
-    }
-  }
+ 
   return (
     <Container sx={stylesFor.coinTableContainer}>
       <Typography sx={stylesFor.headLine}>
@@ -67,7 +71,7 @@ const CoinTable = () => {
                           </TableCell>
                           <TableCell align='right'>
                             <Typography>
-                              ${coin?.current_price?.toFixed(2)}
+                              {`${symbol}${coin?.current_price?.toFixed(2)}`}
                             </Typography>
                           </TableCell>
                           <TableCell align='right'>
