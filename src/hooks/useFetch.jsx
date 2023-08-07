@@ -20,6 +20,6 @@ export const useFetch = (apiUrl, currency,perPage) => {
         return()=>{
             subscribe= false;
         }
-    },[currency])
+    },[currency,apiUrl])
   return {apiData, loading}
 }
