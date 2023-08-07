@@ -42,7 +42,7 @@ const stylesFor = {
 
 const Carousel = () => {
   const {currency} = ContextCryptoState();
-  const { apiData: coinsData, loading } = useFetch("markets", currency);
+  const { apiData: coinsData, loading } = useFetch("markets", currency,10);
   
 
   const items = coinsData?.map(coin => {
@@ -86,7 +86,7 @@ const Carousel = () => {
               items: 5,
             }
           }}
-          // autoPlay
+          autoPlay
           items={items}
         />
         )
