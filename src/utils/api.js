@@ -14,7 +14,7 @@ import axios from "axios";
 
 const BASE_URL = "https://api.coingecko.com/api/v3/coins";
 //url --> markets, id/market_chart, id
-export const fetchApiData = async (url, currency,perPage,days, ) => {
+export const fetchApiData = async (url, currency, perPage, days) => {
     try{
         const { data } = await axios.get(`${BASE_URL}/${url}`, {
             method: "GET",
