@@ -25,6 +25,10 @@ body{
     background:var(--bg-color); 
     color: var(--ori-white);
 }
+a{
+  text-decoration:none;
+  color:var(--ori-gold);
+}
 /* FireFox */
 * {
     scrollbar-width: thin;
