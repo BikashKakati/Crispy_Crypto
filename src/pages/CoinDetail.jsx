@@ -96,7 +96,6 @@ const CoinDetail = () => {
         }
       </Container>
     </>
->>>>>>> 95273254842c5efc3f287ea0593b314000d1908a
   )
 }
 
