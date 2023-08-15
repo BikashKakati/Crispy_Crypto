@@ -35,7 +35,6 @@ const stylesFor = {
 const CoinDetail = () => {
   const { id: coinId } = useParams();
   const { apiData: coinDetails, loading } = useFetch(coinId);
-  console.log(coinDetails);
   const [days, setDays] = useState(1);
   const { symbol, currency } = ContextCryptoState();
 
@@ -63,7 +62,7 @@ const CoinDetail = () => {
                     Rank: #{coinDetails?.market_cap_rank}
                   </Typography>
                   <Typography sx={{ marginBottom: 1 }}>
-                    {parse(`${descArr[0]}.${descArr[1]}.`)}
+                    {parse(`${descArr && descArr[0]}.${descArr && descArr[1]}.`)}
                   </Typography>
                   <Typography sx={{ fontWeight: 600 }}>
                     <span style={stylesFor.marketDetailsTitle}>Current Price:  </span>
@@ -79,13 +78,13 @@ const CoinDetail = () => {
                   </Typography>
                 </Box>
               </Box>
-              <Box sx={{ width: 800 , display: "flex", flexDirection: "column", gap: 4}}>
+              <Box sx={{ width: 800 , display: "flex", flexDirection: "column", gap: 4, alignItems: "center", justifyContent:"center"}}>
                 <CoinChart coinId={coinId} days={days} />
                 <Box sx={{width:"100%", display:"flex", justifyContent:"space-around"}}>
                   {
                     chartDays?.map((days)=>{
                       return(
-                        <Button sx={{background:"var(--ori-gold)"}} key={days.value}>{days.label}</Button>
+                        <Button sx={{background:"var(--ori-gold)"}} key={days.value} onClick = {()=>{setDays(days.value)}} >{days.label}</Button>
                       )
                     })
                   }
