@@ -8,18 +8,26 @@ import { CircularProgress } from "@mui/material";
 const CoinChart = ({ coinId , days}) => {
     const { currency } = ContextCryptoState();
     const [coinsHistoricData, setCoinsHistoricData] = useState();
+    const [loading, setLoading] = useState(false);
 
     const fetchHistoricCoinData = async (id, currency, days) => {
         const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/${id}/market_chart?vs_currency=${currency}&days=${days}`);
-        setCoinsHistoricData(data.prices);
+        return data;
     }
     useEffect(() => {
-        fetchHistoricCoinData(coinId, currency, days);
+        let subscribe = true;
+        setLoading(true);
+        fetchHistoricCoinData(coinId, currency, days)
+        .then(data => {
+            subscribe && setCoinsHistoricData(data.prices);
+            setLoading(false);
+        })
+        return ()=>{subscribe = false;}
     }, [days, currency])
     return (
         <>
             {
-                !coinsHistoricData ? 
+                loading ? 
                 (<CircularProgress />) 
                 : 
                 (<Line
