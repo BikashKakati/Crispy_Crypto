@@ -5,6 +5,7 @@ import { Box, Container, Typography } from '@mui/material';
 import AliceCarousel from 'react-alice-carousel';
 import Loader from './Loader';
 import { ContextCryptoState } from '../context/CryptoContext';
+import { useNavigate } from 'react-router-dom';
 
 const stylesFor = {
   containerBox: {
@@ -43,12 +44,13 @@ const stylesFor = {
 const Carousel = () => {
   const {currency} = ContextCryptoState();
   const { apiData: coinsData, loading } = useFetch("markets", currency,10);
+  const Navigate = useNavigate();
   
 
   const items = coinsData?.map(coin => {
     const priceStatus = coin?.price_change_24h > 0;
     return (
-        <Box sx={stylesFor.coinBox}>
+        <Box sx={stylesFor.coinBox} onClick={()=>Navigate(`/details/${coin?.id}`)}>
           <Box sx={stylesFor.coinImage}><img src={coin?.image} style={{ width: "100%" }} /></Box>
           <span style={stylesFor.coinName}>{coin?.name}</span>
           <span style={{ color: priceStatus ?  "var(--ori-green)": "var(--ori-red)", fontSize: 18, fontWeight: 800 }}>{priceStatus && "+"}{coin?.price_change_24h.toFixed(2)}%</span>
