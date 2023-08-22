@@ -1,16 +1,17 @@
+import { lazy, Suspense } from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+const CoinDetail = lazy(() => import('./pages/CoinDetail'));
 
 import './App.css'
-import { ThemeProvider, createTheme } from '@mui/material'
-import CoinDetail from './pages/CoinDetail';
+import { Box, CircularProgress, ThemeProvider, createTheme } from '@mui/material'
 
 function App() {
   const darkTheme = createTheme({
     palette: {
       primary: {
-        main: "#fff",
+        main: "#eeeeee",
       },
       mode: "dark",
     },
@@ -18,16 +19,16 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <>
         <Router>
           <Navbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/details/:id" element={<CoinDetail/>} />
-          </Routes>
+          <Suspense fallback={<CircularProgress />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/details/:id" element={<CoinDetail />} />
+            </Routes>
+          </Suspense>
         </Router>
 
-      </>
     </ThemeProvider>
   )
 }

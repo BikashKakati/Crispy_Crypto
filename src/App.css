@@ -8,13 +8,13 @@
 }
 :root{
     --bg-color:#222;
-    --ori-black:#111;
-    --ori-white:#fff;
+    --ori-black:#000000;
+    --ori-white:#eeeeee;
     --ori-grey:#c4bfbf;
-    --ori-green:#04be33;
-    --ori-red:#fd0202;
-    --ori-gold:#fcce00;
-    --dark-gold:#d8b208;
+    --ori-green:#4e9a3d;
+    --ori-red:#d21312;
+    --ori-gold:#4E4FEB;
+    --dark-gold:#068FFF;
 }
 html{
     scroll-behavior: smooth;
