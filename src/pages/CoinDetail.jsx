@@ -14,21 +14,31 @@ const stylesFor = {
     alignItems: "center",
     margin: " 20px auto",
     justifyContent: "center",
-    gap: 5
+    gap: 5,
+    flexWrap:{xs:"wrap",md:"nowrap"},
   },
   coinDetailsBox: {
-    maxWidth: 350,
-    borderRight: "1px solid var(--ori-grey)",
-    display: "flex",
+    maxWidth: {xs:"95%",sm:"80%",md:350,},
+    margin:"auto",
+    display:"flex",
+    borderRight: {sm:"notset", md:"1px solid var(--ori-grey)"},
     flexDirection: "column",
     alignItems: "center",
-    padding: "20px 15px 20px 0"
+    padding: {xs:"notset",md:"20px 15px 20px 0"},
   },
   marketDetailsTitle: {
     fontSize: 20,
     fontWeight: 400,
     color: "var(--ori-gold)",
   },
+  chartContainer:{
+    width:{xs:"100%",md:600,lg:850},
+    display: "flex", 
+    flexDirection: "column", 
+    gap: 4, 
+    alignItems: "center", 
+    justifyContent:"center",
+  }
 
 }
 
@@ -74,17 +84,17 @@ const CoinDetail = () => {
                     {coinDetails?.market_data?.market_cap[currency.toLowerCase()].toString().slice(0, -6)}
                   </Typography>
                   <Typography sx={{ color: positiveChange ? "var(--ori-green)" : "var(--ori-red)", fontWeight: 600 }}>
-                    <span style={stylesFor.marketDetailsTitle}>24h Change:  </span>{!!positiveChange && " + "}{coinDetails?.market_data?.price_change_24h}
+                    <span style={stylesFor.marketDetailsTitle}>24h Change:  </span>{!!positiveChange && " + "}{coinDetails?.market_data?.price_change_24h.toFixed(2)}
                   </Typography>
                 </Box>
               </Box>
-              <Box sx={{ width: 800 , display: "flex", flexDirection: "column", gap: 4, alignItems: "center", justifyContent:"center"}}>
+              <Box sx={stylesFor.chartContainer}>
                 <CoinChart coinId={coinId} days={days} />
                 <Box sx={{width:"100%", display:"flex", justifyContent:"space-around"}}>
                   {
                     chartDays?.map((days)=>{
                       return(
-                        <Button sx={{background:"var(--ori-gold)"}} key={days.value} onClick = {()=>{setDays(days.value)}} >{days.label}</Button>
+                        <Button sx={{background:"var(--ori-gold)",fontSize:{xs:8,sm:13}}} key={days.value} onClick = {()=>{setDays(days.value)}} >{days.label}</Button>
                       )
                     })
                   }
