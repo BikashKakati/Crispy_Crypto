@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 const stylesFor = {
   coinTableContainer: {
     textAlign: "center",
-    marginTop: 10,
   },
   headLine: {
     fontSize: 35,
@@ -34,6 +33,7 @@ const CoinTable = () => {
 
   const filterCoinData = coinData?.filter(coins => coins?.name?.toLowerCase().includes(query.toLowerCase()));
   return (
+    <Box sx={{background:"#0f051d", paddingTop:10}}>
     <Container sx={stylesFor.coinTableContainer}>
       <Typography sx={stylesFor.headLine}>
         Market Update
@@ -62,6 +62,7 @@ const CoinTable = () => {
         }} />
 
     </Container>
+    </Box>
   )
 }
 
@@ -78,7 +79,7 @@ const CustomCoinTable = ({ filterCoinData, loading, page, symbol }) => {
           )
           : (
             <Table>
-              <TableHead sx={{ background: "var(--ori-gold)" }}>
+              <TableHead sx={{ background: "linear-gradient(25deg,#2600fc,#ff00ea)" }}>
                 <TableRow>
                   {["Coin", "Price", "24h Change", "Market Cap"].map((head) => (
                     <TableCell

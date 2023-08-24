@@ -12,7 +12,7 @@ const stylesFor = {
   mainContainer: {
     display: "flex",
     alignItems: "center",
-    margin: " 20px auto",
+    margin: " 0px auto",
     justifyContent: "center",
     gap: 5,
     flexWrap:{xs:"wrap",md:"nowrap"},
@@ -54,6 +54,7 @@ const CoinDetail = () => {
     <>
       {loading && <LinearProgress sx={{ background: "var(--ori-gold)" }} />}
 
+      <Box sx={{background:"linear-gradient(0deg,#0f051d 30%,#130749 70%)", padding:"50px 0px"}}>
       <Container sx={stylesFor.mainContainer }>
         {
           !loading &&
@@ -104,6 +105,8 @@ const CoinDetail = () => {
           )
         }
       </Container>
+      </Box>
+
     </>
   )
 }

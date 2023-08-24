@@ -13,7 +13,6 @@ const stylesFor = {
     flexDirection: "column",
     alignItems: "center",
     color: "#fff",
-    marginTop: 10,
     gap: { xs: 5, md: 6 },
   },
   headline: {
@@ -23,6 +22,11 @@ const stylesFor = {
     textTransform: "capitalize",
     textAlign: "center",
     lineHeight: 1.2,
+  },
+  headlineDiff:{
+    WebkitBackgroundClip:"text",
+    backgroundImage: "linear-gradient(25deg,#2600fc,#ff00ea)",
+    color: "transparent",
   },
   coinBox: {
     display: "flex",
@@ -60,10 +64,11 @@ const Carousel = () => {
   })
 
   return (
+    <Box sx={{background:"linear-gradient(0deg,#0f051d 30%,#130749 70%)", paddingTop:10}}>
     <Container sx={stylesFor.containerBox}>
       <Box >
         <Typography sx={stylesFor.headline}>TRACK AND TRADE</Typography>
-        <Typography sx={stylesFor.headline}>CRYPTO CURRENCIES</Typography>
+        <Typography sx={stylesFor.headline}><span style={stylesFor.headlineDiff}>CRYPTO CURRENCIES</span></Typography>
       </Box>
       {
         loading ?
@@ -95,6 +100,7 @@ const Carousel = () => {
       }
 
     </Container>
+    </Box>
   )
 }
 
