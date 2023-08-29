@@ -7,14 +7,13 @@
     font-family: 'Roboto', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 :root{
-    --bg-color:#222;
     --ori-black:#000000;
     --ori-white:#eeeeee;
     --ori-grey:#c4bfbf;
     --ori-green:#0ecb81;
     --ori-red:#ff0000;
-    --ori-gold:#4E4FEB;
-    --dark-gold:#068FFF;
+    --dark-blue:#4E4FEB;
+    --ori-blue:#068FFF;
 }
 html{
     scroll-behavior: smooth;
@@ -22,17 +21,17 @@ html{
 
 body{
     min-height: 100vh;
-    /* background:var(--bg-color);  */
     color: var(--ori-white);
+    background:linear-gradient(0deg,#0f051d 30%,#130749 70%);
 }
 a{
   text-decoration:none;
-  color:var(--ori-gold);
+  color:var(--ori-blue);
 }
 /* FireFox */
 * {
     scrollbar-width: thin;
-    scrollbar-color: var(--ori-gold) var(--ori-white);
+    scrollbar-color: var(--ori-blue);
   }
   
   /* Chrome, Edge and Safari */
@@ -46,17 +45,18 @@ a{
   
   *::-webkit-scrollbar-thumb {
     border-radius: 20px;
-    background-color: var(--ori-gold);
+    background-color: var(--ori-blue);
     border: 1px solid var(--ori-white);
   }
   
   *::-webkit-scrollbar-thumb:hover {
-    background-color: var(--dark-gold);
+    background-color: var(--dark-blue);
   }
   
   *::-webkit-scrollbar-thumb:active {
-    background-color: var(--ori-gold);
+    background-color: var(--ori-blue);
   }
+  
   
 @keyframes spinner{
     0%{

@@ -14,7 +14,7 @@ const stylesFor = {
         height:60,
         borderRadius:"50%",
         border:"6px solid #fff",
-        borderTop:"6px solid var(--ori-gold)",
+        borderTop:"6px solid var(--ori-blue)",
         animation:"1s spinner linear infinite",
     }
 }

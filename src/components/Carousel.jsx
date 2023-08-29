@@ -12,7 +12,6 @@ const stylesFor = {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    color: "#fff",
     gap: { xs: 5, md: 6 },
   },
   headline: {
@@ -38,7 +37,7 @@ const stylesFor = {
     width: { xs: 70, sm: 85 },
   },
   coinName: {
-    color: "#fff",
+    color: "var(--ori-white)",
     textAlign: "center",
     fontWeight: 600,
     fontSize: 17,

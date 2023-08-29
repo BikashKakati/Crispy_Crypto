@@ -21,7 +21,7 @@ function App() {
     <ThemeProvider theme={darkTheme}>
         <Router>
           <Navbar />
-          <Suspense fallback={<CircularProgress />}>
+          <Suspense fallback={<Box sx={{width:"100%", height:"100vh",position:"relative",display:"flex",alignItems:"center",justifyContent:"center"}}><CircularProgress /></Box>}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/details/:id" element={<CoinDetail />} />

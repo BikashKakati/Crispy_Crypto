@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../hooks/useFetch';
 import { Box, Button, Container, LinearProgress, Typography } from '@mui/material';
@@ -29,7 +29,7 @@ const stylesFor = {
   marketDetailsTitle: {
     fontSize: 20,
     fontWeight: 400,
-    color: "var(--ori-gold)",
+    color: "var(--ori-blue)",
   },
   chartContainer:{
     width:{xs:"100%",md:600,lg:850},
@@ -48,13 +48,17 @@ const CoinDetail = () => {
   const [days, setDays] = useState(1);
   const { symbol, currency } = ContextCryptoState();
 
+  useEffect(()=>{
+    window.scroll(0,0)
+  },[])
+  
   const positiveChange = coinDetails?.market_data?.price_change_24h > 0;
   const descArr = coinDetails?.description?.en?.split(". ");
   return (
     <>
-      {loading && <LinearProgress sx={{ background: "var(--ori-gold)" }} />}
+      {loading && <LinearProgress sx={{ background: "var(--ori-blue)" }} />}
 
-      <Box sx={{background:"linear-gradient(0deg,#0f051d 30%,#130749 70%)", padding:"50px 0px"}}>
+      <Box sx={{background:"linear-gradient(0deg,#0f051d 30%,#130749 70%)", padding:"50px 0px", minHeight:"100vh"}}>
       <Container sx={stylesFor.mainContainer }>
         {
           !loading &&
@@ -95,7 +99,7 @@ const CoinDetail = () => {
                   {
                     chartDays?.map((days)=>{
                       return(
-                        <Button sx={{background:"var(--ori-gold)",fontSize:{xs:8,sm:13}}} key={days.value} onClick = {()=>{setDays(days.value)}} >{days.label}</Button>
+                        <Button sx={{background:"linear-gradient(25deg,#2600fc,#ff00ea)",fontSize:{xs:8,sm:13}}} key={days.value} onClick = {()=>{setDays(days.value)}} >{days.label}</Button>
                       )
                     })
                   }

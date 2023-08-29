@@ -75,7 +75,7 @@ const CustomCoinTable = ({ filterCoinData, loading, page, symbol }) => {
       {
         loading ?
           (
-            <LinearProgress sx={{ background: "var(--ori-gold)" }} />
+            <LinearProgress sx={{ background: "var(--ori-blue)" }} />
           )
           : (
             <Table>

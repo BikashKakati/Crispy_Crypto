@@ -4,7 +4,7 @@ import { ContextCryptoState } from '../context/CryptoContext';
 import { useNavigate } from 'react-router-dom';
 const stylesFor = {
   logo:{
-    color:"var(--ori-gold)",
+    color:"var(--ori-white)",
     fontWeight:700,
     cursor:"pointer",
     whiteSpace:"nowrap",
@@ -18,7 +18,7 @@ const Navbar = () => {
   const {currency, setCurrency} = ContextCryptoState();
   const Navigate = useNavigate();
   return (
-    <AppBar sx={{background:"var(--ori-black)"}} position='sticky'>
+    <AppBar sx={{background:"#130749"}} position='sticky'>
         <Toolbar>
           
             <Typography sx={{flex:1}} onClick={()=>{Navigate("/")}}>
