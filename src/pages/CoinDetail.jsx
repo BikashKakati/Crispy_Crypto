@@ -76,8 +76,8 @@ const CoinDetail = () => {
                   <Typography sx={{ textAlign: "center", fontSize: 20, fontWeight: 500, marginBottom: 1 }}>
                     Rank: #{coinDetails?.market_cap_rank}
                   </Typography>
-                  <Typography sx={{ marginBottom: 1 }}>
-                    {parse(`${descArr && descArr[0]}.${descArr && descArr[1]}.`)}
+                  <Typography sx={{ marginBottom: 1, color:"var(--ori-grey)"}}>
+                    {descArr && descArr[0] ? parse(`${descArr[0]}.${descArr[1]}.`): "Description not found"}
                   </Typography>
                   <Typography sx={{ fontWeight: 600 }}>
                     <span style={stylesFor.marketDetailsTitle}>Current Price:  </span>
